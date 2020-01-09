@@ -26,4 +26,16 @@ public class UserController {
         return userService.getById(id);
     }
 
+    @DeleteMapping("/reset/{id}")
+    @ApiOperation(value = "Get user by ID")
+    public void delete(@PathVariable Long id)  {
+        userService.delete(id);
+    }
+
+    @DeleteMapping("/reset/all")
+    @ApiOperation(value = "Get user by ID")
+    public void deleteAll(@PathVariable Long id)  {
+        userService.deleteAll();
+    }
+
 }
