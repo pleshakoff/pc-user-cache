@@ -34,7 +34,7 @@ public class UserController {
 
     @DeleteMapping("/reset/all")
     @ApiOperation(value = "Get user by ID")
-    public void deleteAll(@PathVariable Long id)  {
+    public void deleteAll()  {
         userService.deleteAll();
     }
 
