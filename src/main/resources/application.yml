@@ -1,0 +1,18 @@
+server:
+  port : 8086
+  servlet:
+     context-path: /api/${parcom.api.version}
+parcom:
+  api:
+    version: v1
+  services:
+    -
+      name: classroom
+      host: pc-classroom
+      port: 8080
+      version: v1
+
+spring:
+  application.name: pc-user-cache
+  hateoas:
+    use-hal-as-default-json-media-type: false
