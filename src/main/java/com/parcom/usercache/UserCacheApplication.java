@@ -8,8 +8,13 @@ import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @SpringBootApplication
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class UserCacheApplication {
 
 	@Value("${redis.port}")
@@ -34,6 +39,7 @@ public class UserCacheApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UserCacheApplication.class, args);
+		SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
 	}
 
 
